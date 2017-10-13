@@ -9,7 +9,7 @@ def GenerateTokenHash(
     String VaultDevel2MasterROToken
 ){
     try{
-          sh '''a=$(curl -sSL --header "Content-Type: application/json" --header "X-Vault-Token: ${VaultDevel2MasterROToken}" --request POST --data '{ \\"policies\\": [ \\"${VaultTokenPolicy}\\" ], \\"ttl\\": \\"${VaultTokenTTL}\\" }' ${VaultServerURL}/v1/auth/token/create)'''
+          sh '''a=$(curl ${VaultDevel2MasterROToken} -sSL --header "Content-Type: application/json" --header "X-Vault-Token: ${VaultDevel2MasterROToken}" --request POST --data '{ \\"policies\\": [ \\"${VaultTokenPolicy}\\" ], \\"ttl\\": \\"${VaultTokenTTL}\\" }' ${VaultServerURL}/v1/auth/token/create)'''
 
        } catch(err) {
             echo "error"

@@ -10,7 +10,7 @@ def GenerateTokenHash(
 ){
     try{
           sh '''(
-            echo ${VaultDevel2MasterROToken}
+            echo "${VaultDevel2MasterROToken}"
             curl -sSL --header "Content-Type: application/json" --header "X-Vault-Token: ${VaultDevel2MasterROToken}" --request POST --data '{ \\"policies\\": [ \\"${VaultTokenPolicy}\\" ], \\"ttl\\": \\"${VaultTokenTTL}\\" }' ${VaultServerURL}/v1/auth/token/create
           )'''
        } catch(err) {

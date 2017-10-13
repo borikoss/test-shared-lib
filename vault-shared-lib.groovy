@@ -4,8 +4,8 @@ def GenerateTokenHash0 (args) {
 
 def GenerateTokenHash(
     String VaultServerURL,
-    String VaultTokenTTL,
     String VaultTokenPolicy,
+    String VaultTokenTTL,
     String VaultDevel2MasterROToken
 ){
     try{

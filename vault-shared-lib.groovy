@@ -1,4 +1,4 @@
-def GenerateVaultTokenHash (args) {
+def GenerateTokenHash (args) {
       sh "echo Hallo ${args}"
 }
 

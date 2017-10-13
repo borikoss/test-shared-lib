@@ -1,8 +1,10 @@
 node {
-    stage 'load pipeline'
+    stage 'Load shared libs'
     deleteDir()
-    sh 'git clone https://github.com/borikoss/test-shared-lib.git _pipeline'
+    sh 'git clone https://github.com/borikoss/test-shared-lib.git'
 
-    pipeline = load '_pipeline/shared-libs.groovy'
-    pipeline.GenerateVaultTokenHash('devel2')
+    vault = load 'test-shared-lib/vault-shared-lib.groovy'
+    vault.GenerateTokenHash('devel2')
+
+    deleteDir()
 }

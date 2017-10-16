@@ -11,11 +11,11 @@ node {
     KubeDevelNamespace = "devel2"
     VaultDevel2MasterROToken = "c35c99d3-cf78-6fb3-b604-7d390abab983"
 
-    stage 'Jira Token create & apply '
+    stage 'Create & apply Jira token'
     Vault.GenerateTokenHash("${VaultDevelServerURL}",'policy_devel_ro_jira',"${VaultDevelTokenTTL}","${VaultDevel2MasterROToken}")
     Kube.WriteTokenSecret("${VaultTokenHash}",'vault-devel2-jira-ro-token',"${KubeDevelNamespace}")
 
-    stage 'Crowd Token create & apply'
+    stage 'Create & apply Crowd token'
     Vault.GenerateTokenHash("${VaultDevelServerURL}",'policy_devel_ro_crowd',"${VaultDevelTokenTTL}","${VaultDevel2MasterROToken}")
     Kube.WriteTokenSecret("${VaultTokenHash}",'vault-devel2-crowd-ro-token',"${KubeDevelNamespace}")
 

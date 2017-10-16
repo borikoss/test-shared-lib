@@ -9,7 +9,7 @@ node {
     VaultDevelServerURL = "http://vault.10.50.10.1.xip.io:8200"
 
     stage 'Jira Token create & apply '
-    Vault.GenerateTokenHash(\${VaultDevelServerURL},'policy_devel_ro_jira','72h','c35c99d3-cf78-6fb3-b604-7d390abab983')
+    Vault.GenerateTokenHash("${VaultDevelServerURL}",'policy_devel_ro_jira','72h','c35c99d3-cf78-6fb3-b604-7d390abab983')
     Kube.WriteTokenSecret("${VaultTokenHash}",'vault-devel2-jira-ro-token','devel2')
 
     stage 'Crowd Token create & apply'

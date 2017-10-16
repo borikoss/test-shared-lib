@@ -1,5 +1,5 @@
 node {
-    stage 'Load shared libs'
+    stage 'Load libs & config'
     deleteDir()
     sh 'git clone https://github.com/borikoss/test-shared-lib.git'
 
